@@ -5,7 +5,10 @@ using UnityEngine;
 public class ChildOnCollision : MonoBehaviour
 {
     SphereCollider col;
-    [SerializeField] float sizeIncrease = 0.2f;
+    [SerializeField] float sizeIncrease = 0.1f;
+    [SerializeField] int goal = 5;
+    [SerializeField] GameObject winScreen;
+    int numberCollected = 0;
 
     void Start()
     {
@@ -27,8 +30,15 @@ public class ChildOnCollision : MonoBehaviour
             ob.transform.parent = gameObject.transform;
             ob.transform.position = pos;
             ob.GetComponent<Collider>().enabled = false;
-            col.radius += sizeIncrease;
-            //collision.gameObject.transform.localPosition
+        }
+    }
+    void Grow()
+    {
+        col.radius += sizeIncrease;
+        numberCollected++;
+        if (numberCollected == goal)
+        {
+            winScreen.SetActive(true);
         }
     }
 }
