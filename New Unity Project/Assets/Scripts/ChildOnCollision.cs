@@ -19,7 +19,7 @@ public class ChildOnCollision : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.CompareTag("Collectable"))
+        if (collision.collider.CompareTag("Collectible"))
         {
             ContactPoint contact = collision.contacts[0];
             Vector3 pos = contact.point;
