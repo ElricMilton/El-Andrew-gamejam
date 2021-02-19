@@ -30,6 +30,7 @@ public class ChildOnCollision : MonoBehaviour
             ob.transform.parent = gameObject.transform;
             ob.transform.position = pos;
             ob.GetComponent<Collider>().enabled = false;
+            Grow();
         }
     }
     void Grow()
