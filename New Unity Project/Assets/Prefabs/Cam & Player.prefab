@@ -499,12 +499,12 @@ PrefabInstance:
     - target: {fileID: 585630595762663619, guid: 031aba03a8c1c1f4b925dddcdf9429bc,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000019040192
+      value: -0.000000019040186
       objectReference: {fileID: 0}
     - target: {fileID: 585630595762663619, guid: 031aba03a8c1c1f4b925dddcdf9429bc,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000027469205
+      value: 0.0000000027469196
       objectReference: {fileID: 0}
     - target: {fileID: 585630595878552344, guid: 031aba03a8c1c1f4b925dddcdf9429bc,
         type: 3}
@@ -701,6 +701,26 @@ PrefabInstance:
       propertyPath: sizeIncrease
       value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 4111620536974860475, guid: 8836cdfd9d8b7534fa9ff2ab08628ec6,
+        type: 3}
+      propertyPath: lvlOneGoal
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4111620536974860475, guid: 8836cdfd9d8b7534fa9ff2ab08628ec6,
+        type: 3}
+      propertyPath: lvlTwoGoal
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4111620536974860475, guid: 8836cdfd9d8b7534fa9ff2ab08628ec6,
+        type: 3}
+      propertyPath: lvlThreeGoal
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4111620536974860475, guid: 8836cdfd9d8b7534fa9ff2ab08628ec6,
+        type: 3}
+      propertyPath: playerModel
+      value: 
+      objectReference: {fileID: 1750505028}
     - target: {fileID: 4849173915313954114, guid: 8836cdfd9d8b7534fa9ff2ab08628ec6,
         type: 3}
       propertyPath: m_LocalPosition.x
