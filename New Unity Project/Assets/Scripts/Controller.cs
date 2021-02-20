@@ -10,6 +10,8 @@ public class Controller : MonoBehaviour
 
     private Rigidbody rb;
 
+    public bool useRelitiveInput = false;
+
 
     private void Start()
     {
@@ -18,12 +20,41 @@ public class Controller : MonoBehaviour
 
     void FixedUpdate()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
+        if (useRelitiveInput)
+        {
+            float horizontalAxis = Input.GetAxis("Horizontal");
+            float verticalAxis = Input.GetAxis("Vertical");
 
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+            Camera cam = Camera.main;
+            if (cam == null)
+            {
+                Debug.LogError("No main camera. Add a main camera by setting the MainCamera tag");
+                return;
+            }
 
-        rb.AddForce(movement * speed);
+            var forward = cam.transform.forward;
+            var right = cam.transform.right;
+
+            //use 2d components
+            forward.y = 0f;
+            right.y = 0f;
+            forward.Normalize();
+            right.Normalize();
+
+            //rotate and apply force
+            var desiredMoveDirection = forward * verticalAxis + right * horizontalAxis;
+            rb.AddForce(desiredMoveDirection * speed);
+        }
+        else
+        {
+            float moveHorizontal = Input.GetAxis("Horizontal");
+            float moveVertical = Input.GetAxis("Vertical");
+
+            Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+
+            rb.AddForce(movement * speed);
+        }
+
 
         if(Input.GetButtonDown("Jump"))
         {
