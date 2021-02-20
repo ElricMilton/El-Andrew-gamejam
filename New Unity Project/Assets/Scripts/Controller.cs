@@ -7,17 +7,26 @@ public class Controller : MonoBehaviour
 {
 
     public float speed;
+    public float jumpForce;
 
     private Rigidbody rb;
 
     public bool useRelitiveInput = false;
 
-
+    private void Awake()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
+    private void Update()
+    {
+        Jump();
 
+    }
     void FixedUpdate()
     {
         if (useRelitiveInput)
@@ -56,9 +65,12 @@ public class Controller : MonoBehaviour
         }
 
 
-        if(Input.GetButtonDown("Jump"))
+    }
+    void Jump()
+    {
+        if (Input.GetButtonDown("Jump"))
         {
-            rb.AddForce(new Vector3(0, 5, 0), ForceMode.Impulse);
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
     }
 }
