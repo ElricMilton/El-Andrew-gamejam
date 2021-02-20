@@ -24,5 +24,10 @@ public class Controller : MonoBehaviour
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
         rb.AddForce(movement * speed);
+
+        if(Input.GetButtonDown("Jump"))
+        {
+            rb.AddForce(new Vector3(0, 5, 0), ForceMode.Impulse);
+        }
     }
 }
