@@ -1075,6 +1075,25 @@ Transform:
   m_Father: {fileID: 754904702}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &181576561 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 107014, guid: fe02926d86299874a921d05a946cbd6c,
+    type: 3}
+  m_PrefabInstance: {fileID: 707530450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &181576563
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181576561}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0.24, z: 0}
 --- !u!1 &187303053
 GameObject:
   m_ObjectHideFlags: 0
@@ -1195,6 +1214,10 @@ PrefabInstance:
     - target: {fileID: 118518, guid: 7b8784fae50118e4182c07fbf2d12bb9, type: 3}
       propertyPath: m_Name
       value: Character_ShopKeeper_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 118518, guid: 7b8784fae50118e4182c07fbf2d12bb9, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 404912, guid: 7b8784fae50118e4182c07fbf2d12bb9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2263,6 +2286,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1491217881}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &468566748 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 111434, guid: a665d26bf3f0c8f4bb4797e811962f4b,
+    type: 3}
+  m_PrefabInstance: {fileID: 599548788}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &468566750
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468566748}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0.24, z: 0}
 --- !u!1001 &468778537
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2273,6 +2315,10 @@ PrefabInstance:
     - target: {fileID: 107014, guid: fe02926d86299874a921d05a946cbd6c, type: 3}
       propertyPath: m_Name
       value: Character_Hotdog_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 107014, guid: fe02926d86299874a921d05a946cbd6c, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 478850, guid: fe02926d86299874a921d05a946cbd6c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3500,6 +3546,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character_PunkGuy_01
       objectReference: {fileID: 0}
+    - target: {fileID: 111434, guid: a665d26bf3f0c8f4bb4797e811962f4b, type: 3}
+      propertyPath: m_TagString
+      value: Collectible
+      objectReference: {fileID: 0}
     - target: {fileID: 477434, guid: a665d26bf3f0c8f4bb4797e811962f4b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.4576645
@@ -4065,6 +4115,25 @@ Transform:
   m_Father: {fileID: 754904702}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &699832730 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 191984, guid: ae8b16115c4dca4499645ab171e10144,
+    type: 3}
+  m_PrefabInstance: {fileID: 1764251347}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &699832732
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699832730}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0.24, z: 0}
 --- !u!1 &704947091
 GameObject:
   m_ObjectHideFlags: 0
@@ -4105,6 +4174,10 @@ PrefabInstance:
     - target: {fileID: 107014, guid: fe02926d86299874a921d05a946cbd6c, type: 3}
       propertyPath: m_Name
       value: Character_Hotdog_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 107014, guid: fe02926d86299874a921d05a946cbd6c, type: 3}
+      propertyPath: m_TagString
+      value: Collectible
       objectReference: {fileID: 0}
     - target: {fileID: 478850, guid: fe02926d86299874a921d05a946cbd6c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6026,6 +6099,10 @@ PrefabInstance:
     - target: {fileID: 191984, guid: ae8b16115c4dca4499645ab171e10144, type: 3}
       propertyPath: m_Name
       value: Character_GamerGirl_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 191984, guid: ae8b16115c4dca4499645ab171e10144, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 417210, guid: ae8b16115c4dca4499645ab171e10144, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8499,6 +8576,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character_PunkGuy_01
       objectReference: {fileID: 0}
+    - target: {fileID: 111434, guid: a665d26bf3f0c8f4bb4797e811962f4b, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 477434, guid: a665d26bf3f0c8f4bb4797e811962f4b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.4576645
@@ -8559,6 +8640,10 @@ PrefabInstance:
     - target: {fileID: 118518, guid: 7b8784fae50118e4182c07fbf2d12bb9, type: 3}
       propertyPath: m_Name
       value: Character_ShopKeeper_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 118518, guid: 7b8784fae50118e4182c07fbf2d12bb9, type: 3}
+      propertyPath: m_TagString
+      value: Collectible
       objectReference: {fileID: 0}
     - target: {fileID: 404912, guid: 7b8784fae50118e4182c07fbf2d12bb9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9071,6 +9156,25 @@ Transform:
   m_Father: {fileID: 754904702}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1540488772 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 118518, guid: 7b8784fae50118e4182c07fbf2d12bb9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1496328650}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1540488774
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1540488772}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0.24, z: 0}
 --- !u!1 &1610464473
 GameObject:
   m_ObjectHideFlags: 0
@@ -9527,6 +9631,10 @@ PrefabInstance:
     - target: {fileID: 191984, guid: ae8b16115c4dca4499645ab171e10144, type: 3}
       propertyPath: m_Name
       value: Character_GamerGirl_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 191984, guid: ae8b16115c4dca4499645ab171e10144, type: 3}
+      propertyPath: m_TagString
+      value: Collectible
       objectReference: {fileID: 0}
     - target: {fileID: 417210, guid: ae8b16115c4dca4499645ab171e10144, type: 3}
       propertyPath: m_LocalPosition.x
