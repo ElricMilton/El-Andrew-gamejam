@@ -7,5 +7,5 @@ AnimatorOverrideController:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: SadToCheeringOverride 1
-  m_Controller: {fileID: 9100000, guid: 9d44394c3a4baac488ec63d557d1ab33, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0f981d6e17dd13e4ab8d112bb70528a9, type: 2}
   m_Clips: []
