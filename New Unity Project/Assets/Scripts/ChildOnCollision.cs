@@ -22,6 +22,7 @@ public class ChildOnCollision : MonoBehaviour
     [SerializeField] GameObject lvlTwoWall;
     [SerializeField] GameObject lvlThreeWall;
     [SerializeField] GameObject finishingLine;
+    [SerializeField] GameObject endScreen;
     Transform modelTr;
     Vector3 scaleIncrease;
     int amountCollected = 0;
@@ -53,6 +54,8 @@ public class ChildOnCollision : MonoBehaviour
         {
             finishingLine.SetActive(false);
             winScreen.SetActive(true);
+            StartCoroutine(WaitForSec());
+
         }
     }
 
@@ -95,5 +98,12 @@ public class ChildOnCollision : MonoBehaviour
     {
         print("lvl THREE completed!");
         lvlThreeWall.SetActive(false);
+    }
+    IEnumerator WaitForSec()
+    {
+        yield return new WaitForSeconds(5);
+        endScreen.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }
