@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class ChildOnCollision : MonoBehaviour
 {
+
     SphereCollider col;
     [SerializeField] float sizeIncrease = 0.1f;
     [SerializeField] float colliderIncrease = 0.05f;
@@ -22,7 +23,8 @@ public class ChildOnCollision : MonoBehaviour
     [SerializeField] GameObject lvlTwoWall;
     [SerializeField] GameObject lvlThreeWall;
     [SerializeField] GameObject finishingLine;
-    [SerializeField] GameObject endScreen;
+    [SerializeField] AudioSource audioSource;
+    public AudioClip[] audioClips;
     Transform modelTr;
     Vector3 scaleIncrease;
     int amountCollected = 0;
@@ -46,6 +48,8 @@ public class ChildOnCollision : MonoBehaviour
         {
             collision.rigidbody.mass = 0;
 
+            PlayAudio();
+
             amountCollected++;
             Grow();
             CheckAmount();
@@ -57,11 +61,16 @@ public class ChildOnCollision : MonoBehaviour
             StartCoroutine(WaitForSec());
 
         }
-    }
 
+    }
+    void PlayAudio()
+    {
+        audioSource.PlayOneShot(audioClips[Random.Range(0, audioClips.Length)]);
+    }
 
     void Grow()
     {
+
         col.radius += colliderIncrease;
         modelTr.localScale += scaleIncrease;
         rb.mass += massIncrease;
