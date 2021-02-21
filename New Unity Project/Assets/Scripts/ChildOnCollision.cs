@@ -25,6 +25,7 @@ public class ChildOnCollision : MonoBehaviour
     [SerializeField] GameObject finishingLine;
     [SerializeField] GameObject endScreen;
     [SerializeField] AudioSource audioSource;
+    public GameObject nextLevelText;
     public AudioClip[] audioClips;
     Transform modelTr;
     Vector3 scaleIncrease;
@@ -59,7 +60,7 @@ public class ChildOnCollision : MonoBehaviour
         {
             finishingLine.SetActive(false);
             winScreen.SetActive(true);
-            StartCoroutine(WaitForSec());
+            StartCoroutine(WaitForEnd());
 
         }
 
@@ -96,24 +97,33 @@ public class ChildOnCollision : MonoBehaviour
 
     void CompleteLvlOne()
     {
+        StartCoroutine(FlashContinueText());
         print("lvl ONE completed!");
         lvlOneWall.SetActive(false);
     }
     void CompleteLvlTwo()
     {
+        StartCoroutine(FlashContinueText());
         print("lvl TWO completed!");
         lvlTwoWall.SetActive(false);
     }
     void CompleteLvlThree()
     {
+        StartCoroutine(FlashContinueText());
         print("lvl THREE completed!");
         lvlThreeWall.SetActive(false);
     }
-    IEnumerator WaitForSec()
+    IEnumerator WaitForEnd()
     {
         yield return new WaitForSeconds(5);
         endScreen.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+    }
+    IEnumerator FlashContinueText()
+    {
+        nextLevelText.SetActive(true);
+        yield return new WaitForSeconds(5);
+        nextLevelText.SetActive(false);
     }
 }
