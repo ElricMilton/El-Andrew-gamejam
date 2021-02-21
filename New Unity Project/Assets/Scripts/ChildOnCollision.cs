@@ -9,6 +9,10 @@ public class ChildOnCollision : MonoBehaviour
     SphereCollider col;
     [SerializeField] float sizeIncrease = 0.1f;
     [SerializeField] float colliderIncrease = 0.05f;
+    [Tooltip("How much the players mass increases when an object is collected")]
+    [SerializeField] float massIncrease = 1;
+    [Tooltip("How much to increase the force multiplier by when an object is collected")]
+    [SerializeField] float forceIncrease = 1;
     [SerializeField] int lvlOneGoal;
     [SerializeField] int lvlTwoGoal;
     [SerializeField] int lvlThreeGoal;
@@ -22,6 +26,7 @@ public class ChildOnCollision : MonoBehaviour
     Vector3 scaleIncrease;
     int amountCollected = 0;
     Rigidbody rb;
+    Controller controllerScript;
 
 
     void Start()
@@ -30,18 +35,16 @@ public class ChildOnCollision : MonoBehaviour
         modelTr = playerModel.transform;
         scaleIncrease = new Vector3(sizeIncrease, sizeIncrease, sizeIncrease);
         rb = gameObject.GetComponent<Rigidbody>();
-
+        controllerScript = gameObject.GetComponent<Controller>();
     }
 
 
-    void Update()
-    {
-        
-    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag("Collectible"))
         {
+            collision.rigidbody.mass = 0;
+
             amountCollected++;
             Grow();
             CheckAmount();
@@ -52,12 +55,16 @@ public class ChildOnCollision : MonoBehaviour
             winScreen.SetActive(true);
         }
     }
+
+
     void Grow()
     {
         col.radius += colliderIncrease;
         modelTr.localScale += scaleIncrease;
-
+        rb.mass += massIncrease;
+        controllerScript.forceMultiplyer += forceIncrease;
     }
+
     void CheckAmount()
     {
         if (amountCollected == lvlOneGoal)

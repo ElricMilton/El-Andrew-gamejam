@@ -7,6 +7,8 @@ public class Controller : MonoBehaviour
 {
     public float speed;
     public float jumpForce;
+    // This is used to counteract the increase in mass after collecting objects
+    [HideInInspector] public float forceMultiplyer = 1f;
 
     private Rigidbody rb;
 
@@ -28,6 +30,8 @@ public class Controller : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+        forceMultiplyer = 1.0f;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -89,7 +93,10 @@ public class Controller : MonoBehaviour
 
             //rotate and apply force
             var desiredMoveDirection = forward * verticalAxis + right * horizontalAxis;
-            rb.AddForce(desiredMoveDirection * speed);
+            desiredMoveDirection.Normalize();
+
+            //a flat multiplier is used to compensate for the addition of delta time, so speed stays at a similar scale
+            rb.AddForce(desiredMoveDirection * speed * forceMultiplyer * Time.deltaTime * 60);
         }
         else
         {
@@ -98,7 +105,7 @@ public class Controller : MonoBehaviour
 
             Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
-            rb.AddForce(movement * speed);
+            rb.AddForce(movement * speed * forceMultiplyer * Time.deltaTime * 60);
         }
     }
 
@@ -106,7 +113,7 @@ public class Controller : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump"))
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            rb.AddForce(Vector3.up * jumpForce * forceMultiplyer, ForceMode.Impulse);
         }
     }
 }
