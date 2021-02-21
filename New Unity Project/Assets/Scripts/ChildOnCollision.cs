@@ -14,9 +14,14 @@ public class ChildOnCollision : MonoBehaviour
     [SerializeField] int lvlThreeGoal;
     [SerializeField] GameObject winScreen;
     [SerializeField] GameObject playerModel;
+    [SerializeField] GameObject lvlOneWall;
+    [SerializeField] GameObject lvlTwoWall;
+    [SerializeField] GameObject lvlThreeWall;
+    [SerializeField] GameObject finishingLine;
     Transform modelTr;
     Vector3 scaleIncrease;
     int amountCollected = 0;
+    Rigidbody rb;
 
 
     void Start()
@@ -24,6 +29,7 @@ public class ChildOnCollision : MonoBehaviour
         col = gameObject.GetComponent<SphereCollider>();
         modelTr = playerModel.transform;
         scaleIncrease = new Vector3(sizeIncrease, sizeIncrease, sizeIncrease);
+        rb = gameObject.GetComponent<Rigidbody>();
 
     }
 
@@ -39,6 +45,11 @@ public class ChildOnCollision : MonoBehaviour
             amountCollected++;
             Grow();
             CheckAmount();
+        }
+        if (collision.gameObject == finishingLine)
+        {
+            finishingLine.SetActive(false);
+            winScreen.SetActive(true);
         }
     }
     void Grow()
@@ -66,14 +77,16 @@ public class ChildOnCollision : MonoBehaviour
     void CompleteLvlOne()
     {
         print("lvl ONE completed!");
+        lvlOneWall.SetActive(false);
     }
     void CompleteLvlTwo()
     {
         print("lvl TWO completed!");
+        lvlTwoWall.SetActive(false);
     }
     void CompleteLvlThree()
     {
         print("lvl THREE completed!");
-        winScreen.SetActive(true);
+        lvlThreeWall.SetActive(false);
     }
 }
