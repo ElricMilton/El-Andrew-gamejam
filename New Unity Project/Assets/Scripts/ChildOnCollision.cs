@@ -23,6 +23,7 @@ public class ChildOnCollision : MonoBehaviour
     [SerializeField] GameObject lvlTwoWall;
     [SerializeField] GameObject lvlThreeWall;
     [SerializeField] GameObject finishingLine;
+    [SerializeField] GameObject endScreen;
     [SerializeField] AudioSource audioSource;
     public AudioClip[] audioClips;
     Transform modelTr;
