@@ -5,20 +5,13 @@ using UnityEngine.UI;
 
 public class Controller : MonoBehaviour
 {
+
     public float speed;
     public float jumpForce;
 
     private Rigidbody rb;
 
-    // Should the player move relitive to the camera's rotation
     public bool useRelitiveInput = false;
-
-    // How many 'ground' objects is the player touching?
-    int groundContacts = 0;
-
-    public float airDrag = 0.3f;
-    public float groundDrag = 2f;
-
 
     private void Awake()
     {
@@ -29,43 +22,13 @@ public class Controller : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
     }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (!collision.transform.CompareTag("Collectible"))
-        {
-            groundContacts++;
-        }
-    }
-    private void OnCollisionExit(Collision collision)
-    {
-        if (!collision.transform.CompareTag("Collectible"))
-        {
-            groundContacts--;
-        }
-    }
-
-
     private void Update()
     {
-        // While the player is on the ground, they can move
-        if (groundContacts > 0)
-		{
-            Move();
-            Jump();
+        Jump();
 
-            rb.drag = groundDrag;
-        }
-        // While in the air, the player cant move and have reduced drag
-		else
-		{
-            rb.drag = airDrag;
-		}
     }
-
-
-	void Move()
-	{
+    void FixedUpdate()
+    {
         if (useRelitiveInput)
         {
             float horizontalAxis = Input.GetAxis("Horizontal");
@@ -100,9 +63,10 @@ public class Controller : MonoBehaviour
 
             rb.AddForce(movement * speed);
         }
-    }
 
-	void Jump()
+
+    }
+    void Jump()
     {
         if (Input.GetButtonDown("Jump"))
         {
