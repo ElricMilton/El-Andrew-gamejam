@@ -24,8 +24,10 @@ public class ChildOnCollision : MonoBehaviour
     [SerializeField] GameObject finishingLine;
     [SerializeField] GameObject endScreen;
     [SerializeField] AudioSource audioSource;
+    
     public GameObject nextLevelText;
     public AudioClip[] audioClips;
+    public GameObject introText;
     Transform modelTr;
     Vector3 scaleIncrease;
     int amountCollected = 0;
@@ -40,6 +42,7 @@ public class ChildOnCollision : MonoBehaviour
         scaleIncrease = new Vector3(sizeIncrease, sizeIncrease, sizeIncrease);
         rb = gameObject.GetComponent<Rigidbody>();
         controllerScript = gameObject.GetComponent<Controller>();
+        StartCoroutine(IntroText());
     }
 
 
@@ -124,5 +127,12 @@ public class ChildOnCollision : MonoBehaviour
         nextLevelText.SetActive(true);
         yield return new WaitForSeconds(5);
         nextLevelText.SetActive(false);
+    }
+    IEnumerator IntroText()
+    {
+        introText.SetActive(true);
+
+        yield return new WaitForSeconds(10);
+        introText.SetActive(false);
     }
 }
