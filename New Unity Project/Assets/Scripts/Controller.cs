@@ -11,9 +11,16 @@ public class Controller : MonoBehaviour
     // This is used to counteract the increase in mass after collecting objects
     [HideInInspector] public float forceMultiplyer = 1f;
 
+    public bool canMoveInAir = false;
+	int collisionCount = 0;
+
     private Rigidbody rb;
 
     public bool useRelitiveInput = false;
+
+    public float airDrag = 0.3f;
+    public float groundDrag = 2f;
+
 
     private void Awake()
     {
@@ -26,13 +33,48 @@ public class Controller : MonoBehaviour
 
         forceMultiplyer = 1.0f;
     }
-    private void Update()
-    {
-        Jump();
 
+	private void OnCollisionEnter(Collision collision)
+	{
+        if (collision.gameObject.CompareTag("Collectible"))
+		{
+            collisionCount++;
+        }
+	}
+	private void OnCollisionExit(Collision collision)
+	{
+        if (collision.gameObject.CompareTag("Collectible"))
+        {
+            collisionCount--;
+        }
     }
-    void FixedUpdate()
+
+	private void Update()
     {
+        //player is on ground
+        if (collisionCount > 0)
+		{
+            Jump();
+            Move();
+
+            rb.drag = groundDrag;
+		}
+        //player is in air
+		else
+		{
+            if (canMoveInAir)
+			{
+                Jump();
+                Move();
+            }
+
+            rb.drag = airDrag;
+		}
+    }
+
+
+    void Move()
+	{
         if (useRelitiveInput)
         {
             float horizontalAxis = Input.GetAxis("Horizontal");
@@ -70,9 +112,8 @@ public class Controller : MonoBehaviour
 
             rb.AddForce(movement * speed * forceMultiplyer * Time.deltaTime * 60);
         }
-
-
     }
+
     void Jump()
     {
         if (Input.GetButtonDown("Jump"))
