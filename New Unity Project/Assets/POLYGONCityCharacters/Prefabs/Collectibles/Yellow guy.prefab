@@ -67,6 +67,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animatorOverride: {fileID: 22100000, guid: 3a73e17eae4769d479bc9c08c035b7e4, type: 2}
+  particleOb: {fileID: 0}
 --- !u!54 &7242708894502884886
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Collectible
   - brick
+  - Particle
   layers:
   - Default
   - TransparentFX
