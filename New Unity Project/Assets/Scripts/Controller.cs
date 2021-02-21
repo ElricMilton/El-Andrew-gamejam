@@ -36,14 +36,14 @@ public class Controller : MonoBehaviour
 
 	private void OnCollisionEnter(Collision collision)
 	{
-        if (collision.gameObject.CompareTag("Collectible"))
+        if (!collision.gameObject.CompareTag("Collectible"))
 		{
             collisionCount++;
         }
 	}
 	private void OnCollisionExit(Collision collision)
 	{
-        if (collision.gameObject.CompareTag("Collectible"))
+        if (!collision.gameObject.CompareTag("Collectible"))
         {
             collisionCount--;
         }
